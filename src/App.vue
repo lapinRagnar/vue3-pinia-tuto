@@ -1,5 +1,9 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+  import { RouterLink, RouterView } from 'vue-router'
+
+  import { useUserStore } from '@/stores/user.js'
+
+  const authStore = useUserStore()
 
 </script>
 
@@ -12,6 +16,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
+          <button class="monBouton" @click="authStore.logout">logout</button>
         </nav>
       </div>
     </header>
@@ -33,17 +38,18 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  display: flex;
 }
 
-nav a.router-link-exact-active {
+nav a.router-link-exact-active .monBouton {
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
+nav a.router-link-exact-active:hover  {
   background-color: transparent;
 }
 
-nav a {
+nav a  {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
@@ -51,6 +57,16 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.monBouton {
+  border: 0;
+  background-color: transparent;
+  color: hsl(160deg 100% 37%);
+  cursor: pointer;
+  border-left: 1px solid var(--color-border);
+  padding: 0 1rem;
+  font-size: 15px;
 }
 
 @media (min-width: 1024px) {
