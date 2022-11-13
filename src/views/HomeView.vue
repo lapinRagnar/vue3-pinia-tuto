@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+  import { useCounterStore } from '@/stores/counter.js'
+
+  const store = useCounterStore()
+
+  console.log(store)
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>Home Page</h1>
   </main>
 </template>
