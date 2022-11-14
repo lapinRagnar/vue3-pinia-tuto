@@ -16,7 +16,8 @@
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
-          <button class="monBouton" @click="authStore.logout">logout</button>
+          <button v-if="authStore.isAuthenticated" class="monBouton" @click="authStore.logout">logout</button>
+          <button v-else class="monBouton" @click="authStore.login">login</button>
         </nav>
       </div>
     </header>
